@@ -1,9 +1,8 @@
-# You can add custom software and dependencies for your environment here. Some examples:
+FROM risingstack/alpine:3.3-v4.2.6-1.1.3
 
-# RUN code-server --install-extension esbenp.prettier-vscode
-# RUN sudo apt-get install -y build-essential
-# RUN COPY myTool /home/coder/myTool
+COPY package.json package.json  
+RUN npm install
 
-# Install NodeJS
-#RUN sudo curl -fsSL https://deb.nodesource.com/setup_15.x | sudo bash -
-RUN sudo apt-get install nodejs -y
+# Add your source files
+COPY . .  
+CMD ["npm","start"]
