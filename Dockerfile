@@ -51,3 +51,9 @@ ENTRYPOINT ["/usr/bin/deploy-container-entrypoint.sh"]
 # Install NodeJS
 RUN sudo curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
 RUN sudo apt-get install -y nodejs
+
+RUN sudo code-server --install-extension akamud.vscode-theme-onedark
+
+RUN sudo mkdir Projects
+RUN cd Projects/
+RUN sudo git clone https://github.com/JohanDevv2/skole.git
